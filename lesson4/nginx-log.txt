@@ -1,0 +1,96 @@
+Script started on 2026-11-01 20:23:11+05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="204" LINES="61"]
+[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# apt install nginx
+[?2004lReading package lists... 0%Reading package lists... 100%                              Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%                                Reading state information... 0%Reading state information... 0%                                Installing:
+[32m  nginx
+[0m
+Installing dependencies:
+[32m  nginx-common
+[0m
+Suggested packages:
+  fcgiwrap  nginx-doc  ssl-cert
+
+Summary:
+  Upgrading: 0, Installing: 2, Removing: 0, Not Upgrading: 113
+  Download size: 725 kB
+  Space needed: 1,906 kB / 6,589 MB available
+
+Continue? [Y/n] y
+[33m0% [Working][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m0% [Connecting to debian.map.fastlydns.net][0m[33m                                           0% [Waiting for headers][0m                        Get:1 http://security.debian.org/debian-security trixie-security/main amd64 nginx-common all 1.26.3-3+deb13u10 [112 kB]
+[33m1% [1 nginx-common 12.9 kB/112 kB 11%][0m[33m7% [1 nginx-common 64.3 kB/112 kB 57%]                                                                                                                                                    10.7 kB/s 1min 1s[0m[33m22% [Working]                                                                                                                                                                                 10.7 kB/s 57s[0m                                                                                                                                                                                                           Get:2 http://security.debian.org/debian-security trixie-security/main amd64 nginx amd64 1.26.3-3+deb13u10 [614 kB]
+[33m22% [2 nginx 0 B/614 kB 0%]                                                                                                                                                                   10.7 kB/s 57s[0m[33m82% [2 nginx 544 kB/614 kB 89%]                                                                                                                                                                10.7 kB/s 6s[0m[33m100% [Working]                                                                                                                                                                                 10.7 kB/s 0s[0m                                                                                                                                                                                                           Fetched 725 kB in 7s (104 kB/s)
+Preconfiguring packages ...
+
+7[0;60r8[1ASelecting previously unselected package nginx-common.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 46183 files and directories currently installed.)
+Preparing to unpack .../nginx-common_1.26.3-3+deb13u10_all.deb ...
+7[61;0f[42m[30mProgress: [  0%][49m[39m [                                                                                                                                                                                      ] 87[61;0f[42m[30mProgress: [ 11%][49m[39m [████████████████████▏                                                                                                                                                                 ] 8Unpacking nginx-common (1.26.3-3+deb13u10) ...
+7[61;0f[42m[30mProgress: [ 22%][49m[39m [████████████████████████████████████████▍                                                                                                                                             ] 8Selecting previously unselected package nginx.
+Preparing to unpack .../nginx_1.26.3-3+deb13u10_amd64.deb ...
+7[61;0f[42m[30mProgress: [ 33%][49m[39m [████████████████████████████████████████████████████████████▋                                                                                                                         ] 8Unpacking nginx (1.26.3-3+deb13u10) ...
+7[61;0f[42m[30mProgress: [ 44%][49m[39m [████████████████████████████████████████████████████████████████████████████████▉                                                                                                     ] 8Setting up nginx-common (1.26.3-3+deb13u10) ...
+7[61;0f[42m[30mProgress: [ 56%][49m[39m [█████████████████████████████████████████████████████████████████████████████████████████████████████                                                                                 ] 8Created symlink '/etc/systemd/system/multi-user.target.wants/nginx.service' → '/usr/lib/systemd/system/nginx.service'.
+7[61;0f[42m[30mProgress: [ 67%][49m[39m [█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                                            ] 8Setting up nginx (1.26.3-3+deb13u10) ...
+7[61;0f[42m[30mProgress: [ 78%][49m[39m [█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                                        ] 8Upgrading binary: nginx.
+7[61;0f[42m[30mProgress: [ 89%][49m[39m [█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                    ] 8Processing triggers for man-db (2.13.1-1) ...
+
+7[0;61r8[1A[J[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# systemctl status nginx
+[?2004l[?1h=[0;1;32m●[0m nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://codeby/usr/lib/systemd/system/nginx.service\/usr/lib/systemd/system/nginx.service]8;;\; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)[m]8;;\
+     Active: [0;1;32mactive (running)[0m since Sun 2026-11-01 20:24:03 +05; 1min 12s ago[m
+ Invocation: 1ffefaa71295485ca7405129c9c4958b[m
+       Docs: ]8;;man:nginx(8)\man:nginx(8)]8;;\[m]8;;\
+    Process: 5428 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)[m
+    Process: 5430 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)[m
+   Main PID: 5456 (nginx)[m
+      Tasks: 2[0;38;5;245m (limit: 1022)[0m[m
+     Memory: 2.6M (peak: 5.4M)[m
+        CPU: 55ms[m
+     CGroup: /system.slice/nginx.service[m
+             ├─[0;38;5;245m5456 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"[0m[m
+             └─[0;38;5;245m5459 "nginx: worker process"[0m[m
+[m
+Nov 01 20:24:03 codeby systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...[m
+Nov 01 20:24:03 codeby systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.[m
+[K[?1l>[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# ssy[K[Ks[Kystemctl disable nginx
+[?2004lSynchronizing state of nginx.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install disable nginx
+Removed '/etc/systemd/system/multi-user.target.wants/nginx.service'.
+[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# systemctl status nginx
+[?2004l[?1h=[0;1;32m●[0m nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://codeby/usr/lib/systemd/system/nginx.service\/usr/lib/systemd/system/nginx.service]8;;\; [0;1;38:5:185mdisabled[0m; preset: [0;1;32menabled[0m)[m]8;;\
+     Active: [0;1;32mactive (running)[0m since Sun 2026-11-01 20:24:03 +05; 2min 16s ago[m
+ Invocation: 1ffefaa71295485ca7405129c9c4958b[m
+       Docs: ]8;;man:nginx(8)\man:nginx(8)]8;;\[m]8;;\
+   Main PID: 5456 (nginx)[m
+      Tasks: 2[0;38;5;245m (limit: 1022)[0m[m
+     Memory: 2.6M (peak: 5.4M)[m
+        CPU: 55ms[m
+     CGroup: /system.slice/nginx.service[m
+             ├─[0;38;5;245m5456 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"[0m[m
+             └─[0;38;5;245m5459 "nginx: worker process"[0m[m
+[m
+Nov 01 20:24:03 codeby systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...[m
+Nov 01 20:24:03 codeby systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.[m
+[K[?1l>[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# systemctl stop nginx
+[?2004l[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# systemctl status nginx
+[?2004l[?1h=○ nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://codeby/usr/lib/systemd/system/nginx.service\/usr/lib/systemd/system/nginx.service]8;;\; [0;1;38:5:185mdisabled[0m; preset: [0;1;32menabled[0m)[m]8;;\
+     Active: inactive (dead)[m
+       Docs: ]8;;man:nginx(8)\man:nginx(8)]8;;\[m]8;;\
+[m
+Nov 01 20:24:03 codeby systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...[m
+Nov 01 20:24:03 codeby systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.[m
+Nov 01 20:27:27 codeby systemd[1]: Stopping nginx.service - A high performance web server and a reverse proxy server...[m
+Nov 01 20:27:27 codeby systemd[1]: nginx.service: Deactivated successfully.[m
+Nov 01 20:27:27 codeby systemd[1]: Stopped nginx.service - A high performance web server and a reverse proxy server.[m
+[K[?1l>[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# systemctl is-active nginx.service [K[K[K[K[K[K[K[K[K
+[?2004linactive
+[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# systemctl is-active nginx[K[K[K[K[K[K[K[K[K[K[K[K[K[Ks-enabled nginx
+[?2004ldisabled
+[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# touch /etc/systemd/system/custom-nginx.service
+[?2004l[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# ls -a /etc/systemd/system
+[?2004l[0m[01;34m.[0m                     [01;36mdbus-org.freedesktop.timesync1.service[0m  [01;34mhibernate.target.wants[0m     [01;34mnetwork-online.target.wants[0m  [01;34msshd@.service.wants[0m  [01;34msuspend.target.wants[0m                 [01;34mtimers.target.wants[0m
+[01;34m..[0m                    [01;34mdefault.target.wants[0m                    [01;34mhybrid-sleep.target.wants[0m  [01;36msshd.service[0m                 [01;34mssh.service.wants[0m    [01;34msuspend-then-hibernate.target.wants[0m  [01;32mxe-automator.service[0m
+custom-nginx.service  [01;34mgetty.target.wants[0m                      [01;34mmulti-user.target.wants[0m    [01;34msshd.service.wants[0m           [01;34mssh.socket.wants[0m     [01;34msysinit.target.wants[0m
+[?2004h[01;31mroot[00m@[01;33mcodeby[00m:[01;34m~[00m# nano /etc/systemd/system/custom-nginx.service 
+[?2004l[?2004h[?1049h[22;0;0t[1;61r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[59;96H(B[0;7m[ Reading... ](B[m[59;95H(B[0;7m[ Read 0 lines ](B[m[H(B[0;7m  GNU nano 8.4                                                                      /etc/systemd/system/custom-nginx.service                                                                                [1;203H(B[m[60d(B[0;7m^G(B[m Help[60;18H(B[0;7m^O(B[m Write Out     (B[0;7m^F(B[m Where Is[52G(B[0;7m^K(B[m Cut[60;69H(B[0;7m^T(B[m Execute[86G(B[0;7m^C(B[m Location[103G(B[0;7mM-U(B[m Undo[60;120H(B[0;7mM-A(B[m Set Mark     (B[0;7mM-](B[m To Bracket   (B[0;7mM-B(B[m Previous     (B[0;7m◂(B[m Back[60;188H(B[0;7m^◂(B[m Prev Word[61d(B[0;7m^X(B[m Exit[61;18H(B[0;7m^R(B[m Read File     (B[0;7m^\(B[m Replace[52G(B[0;7m^U(B[m Paste[61;69H(B[0;7m^J(B[m Justify[86G(B[0;7m^/(B[m Go To Line    (B[0;7mM-E(B[m Redo[61;120H(B[0;7mM-6(B[m Copy[61;137H(B[0;7m^B(B[m Where Was     (B[0;7mM-F(B[m Next[61;171H(B[0;7m▸(B[m Forward[61;188H(B[0;7m^▸(B[m Next Word[2d[?12l[?25h[?25l[1;126H(B[0;7m*[59d(B[m[K[1;203H[2d(B[0;1m[32m[Unit][3d[39m(B[mDescription=Custom Nginx Web Server[4dAfter=network.target[6d(B[0;1m[32m[Service][7d[39m(B[mType=forking[8dPIDFile=/run/nginx.pid[9dExecStartPre=/usr/sbin/nginx -t[10dExecStart=/usr/sbin/nginx[11dExecReload=/usr/sbin/nginx -s reload[12dExecStop=/usr/sbin/nginx -s quit[13dRestart=on-failure[15d(B[0;1m[32m[Install][16d[39m(B[mWantedBy=multi-user.target[?12l[?25h[?25l[60;18H[28X[60;52H(B[0;7mM-D(B[m DOS Format             [86G           [60;105H(B[0;7mA(B[m Append[120G[31X[60;158HBackup File[K[61;2H(B[0;7mC(B[m Cancel[61;18H[27X[61;52H(B[0;7mM-M(B[m Mac Format             [86G             [105G(B[0;7mP(B[m Prepend[120G        [61;137H[17X[61;154H(B[0;7m^T(B[m Browse[K[59d(B[0;7mWrite to File: /etc/systemd/system/custom-nginx.service                                                                                                                                                     [59;56H(B[m[?12l[?25h[?25l[59;95H[1K (B[0;7m[ Writing... ](B[m[K[1;126H(B[0;7m [203G(B[m[59;94H(B[0;7m[ Wrote 15 lines ](B[m[60;18H(B[0;7m^O(B[m Write Out     (B[0;7m^F(B[m Where Is[52G(B[0;7m^K(B[m Cut           (B[0;7m^T(B[m Execute[86G(B[0;7m^C(B[m Location[60;105H(B[0;7m
