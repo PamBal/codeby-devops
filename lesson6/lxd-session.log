@@ -1,0 +1,97 @@
+Script started on 2026-11-09 06:25:58+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="204" LINES="51"]
+[?2004h]0;root@server: ~root@server:~# date
+[?2004lMon Nov  9 06:26:07 AM UTC 2026
+[?2004h]0;root@server: ~root@server:~# snap list lxd
+[?2004lName  Version         Rev    Tracking     Publisher[32m[0m   Notes
+lxd   5.21.9-2313ff2  41299  5.21/stable  canonical[32m✓[0m  -
+[?2004h]0;root@server: ~root@server:~# lxc list
+[?2004l+------------------+---------+----------------------+------+-----------+-----------+
+|       NAME       |  STATE  |         IPV4         | IPV6 |   TYPE    | SNAPSHOTS |
++------------------+---------+----------------------+------+-----------+-----------+
+| apache-container | RUNNING | 10.200.200.80 (eth0) |      | CONTAINER | 0         |
++------------------+---------+----------------------+------+-----------+-----------+
+[?2004h]0;root@server: ~root@server:~# lxc network list
+[?2004l+--------+----------+---------+-----------------+------+-------------+---------+---------+
+|  NAME  |   TYPE   | MANAGED |      IPV4       | IPV6 | DESCRIPTION | USED BY |  STATE  |
++--------+----------+---------+-----------------+------+-------------+---------+---------+
+| eth0   | physical | NO      |                 |      |             | 0       |         |
++--------+----------+---------+-----------------+------+-------------+---------+---------+
+| eth1   | physical | NO      |                 |      |             | 0       |         |
++--------+----------+---------+-----------------+------+-------------+---------+---------+
+| lxdbr0 | bridge   | YES     | 10.200.200.1/24 | none |             | 2       | CREATED |
++--------+----------+---------+-----------------+------+-------------+---------+---------+
+[?2004h]0;root@server: ~root@server:~# lxc storage list
+[?2004l+---------+--------+------------------------------------------------+-------------+---------+---------+
+|  NAME   | DRIVER |                     SOURCE                     | DESCRIPTION | USED BY |  STATE  |
++---------+--------+------------------------------------------------+-------------+---------+---------+
+| default | dir    | /var/snap/lxd/common/lxd/storage-pools/default |             | 2       | CREATED |
++---------+--------+------------------------------------------------+-------------+---------+---------+
+[?2004h]0;root@server: ~root@server:~# lxc profile show deful[K[Kault
+[?2004lname: default
+description: Default LXD profile
+config: {}
+devices:
+  eth0:
+    name: eth0
+    network: lxdbr0
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+used_by:
+- /1.0/instances/apache-container
+project: default
+[?2004h]0;root@server: ~root@server:~# [7mlxc config device show apache-container[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clxc config device show apache-container
+[A
+[?2004lapache-http:
+  connect: tcp:127.0.0.1:80
+  listen: tcp:192.168.56.10:8080
+  type: proxy
+[?2004h]0;root@server: ~root@server:~# [7mlxc exec apache-container -- systemctl status apache2 --no-pager[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clxc exec apache-container -- systemctl status apache2 --no-pager
+[A
+[?2004l[0;1;32m●[0m apache2.service - The Apache HTTP Server
+     Loaded: loaded (]8;;file://apache-container/usr/lib/systemd/system/apache2.service/usr/lib/systemd/system/apache2.service]8;;; [0;1;32menabled[0m; preset: [0;1;32menabled[0m)
+     Active: [0;1;32mactive (running)[0m since Mon 2026-11-09 06:06:57 UTC; 20min ago
+       Docs: ]8;;https://httpd.apache.org/docs/2.4/https://httpd.apache.org/docs/2.4/]8;;
+   Main PID: 1591 (apache2)
+      Tasks: 55 (limit: 2056)
+     Memory: 5.8M (peak: 6.1M)
+        CPU: 208ms
+     CGroup: /system.slice/apache2.service
+             ├─[0;38;5;245m1591 /usr/sbin/apache2 -k start[0m
+             ├─[0;38;5;245m1593 /usr/sbin/apache2 -k start[0m
+             └─[0;38;5;245m1594 /usr/sbin/apache2 -k start[0m
+
+Nov 09 06:06:57 apache-container systemd[1]: Starting apache2.service - The Apache HTTP Server...
+Nov 09 06:06:57 apache-container systemd[1]: Started apache2.service - The Apache HTTP Server.
+[?2004h]0;root@server: ~root@server:~# [7mlxc exec apache-container -- curl -I http://127.0.0.1[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clxc exec apache-container -- curl -I http://127.0.0.1
+[A
+[?2004lHTTP/1.1 200 OK
+[1mDate[0m: Mon, 09 Nov 2026 06:27:07 GMT
+[1mServer[0m: Apache/2.4.58 (Ubuntu)
+[1mLast-Modified[0m: Mon, 09 Nov 2026 06:06:56 GMT
+[1mETag[0m: "29af-65fd1c4ed0046"
+[1mAccept-Ranges[0m: bytes
+[1mContent-Length[0m: 10671
+[1mVary[0m: Accept-Encoding
+[1mContent-Type[0m: text/html
+
+[?2004h]0;root@server: ~root@server:~# [7mcurl -I http://192.168.56.10:8080[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccurl -I http://192.168.56.10:8080
+[?2004lHTTP/1.1 200 OK
+[1mDate[0m: Mon, 09 Nov 2026 06:27:13 GMT
+[1mServer[0m: Apache/2.4.58 (Ubuntu)
+[1mLast-Modified[0m: Mon, 09 Nov 2026 06:06:56 GMT
+[1mETag[0m: "29af-65fd1c4ed0046"
+[1mAccept-Ranges[0m: bytes
+[1mContent-Length[0m: 10671
+[1mVary[0m: Accept-Encoding
+[1mContent-Type[0m: text/html
+
+[?2004h]0;root@server: ~root@server:~# [?2004l
+exit
+
+Script done on 2026-11-09 06:27:14+00:00 [COMMAND_EXIT_CODE="0"]
